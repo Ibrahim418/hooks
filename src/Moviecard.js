@@ -3,6 +3,7 @@ import {Card,Button} from 'react-bootstrap'
 import StarRatingComponent from 'react-star-rating-component';
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, {useState} from 'react';
+import {Link} from 'react-router-dom'
 
 function Moviecard({movie}) {
   const [rating, setRating] = useState(1)
@@ -17,21 +18,22 @@ function Moviecard({movie}) {
   <Card.Img className="img" variant="top" src={movie.poster} />
   <Card.Body>
     <Card.Title>{movie.title}</Card.Title>
-    <Card.Text>
-   {movie.discription}
+ 
+    <Card.Text >
+   {movie.description}
     </Card.Text>
-    <Button variant="primary">Play Movie</Button>
+
+    <Button variant="primary" >Play Movie</Button>
     <StarRatingComponent 
     name="rate1" 
     starCount={5}
     value={movie.rate}
     onStarClick={onStarClick}
   />
+  <Link to ={`/Trailer/${movie.id}`}>description</Link>
  
   </Card.Body>
-  {/* <Button variant="primary" onClick={()=>handleRemove(movie.id)}>
-          Remove
-        </Button> */}
+  
 
  
 </Card>
